@@ -1,6 +1,7 @@
 module com.mrdevil.usermanagementsystem {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphicsEmpty;
 
 
     opens com.mrdevil.usermanagementsystem to javafx.fxml;

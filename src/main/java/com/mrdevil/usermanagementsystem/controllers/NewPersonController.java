@@ -15,6 +15,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,6 +51,7 @@ public class NewPersonController implements Initializable {
         Scene scene = new Scene(loader.load(), 600, 205);
         stage.setTitle("Crear Nueva Persona");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

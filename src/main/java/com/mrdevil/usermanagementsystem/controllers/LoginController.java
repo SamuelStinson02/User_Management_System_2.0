@@ -11,7 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,6 +44,7 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(loader.load(), 600, 400);
         stage.setScene(scene);
         stage.setTitle("Sistema de Gestión de Usuarios");
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -83,6 +87,12 @@ public class LoginController implements Initializable {
             }
             userText.setText("");
             passText.setText("");
+        }
+    }
+
+    public void onKeyEnter(KeyEvent enterEvent) throws IOException {
+        if(enterEvent.getCode()== KeyCode.ENTER){
+            onLoginBtnClicked();
         }
     }
 }

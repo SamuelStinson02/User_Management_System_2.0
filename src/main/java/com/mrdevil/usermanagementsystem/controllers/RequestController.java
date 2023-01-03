@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +40,7 @@ public class RequestController implements Initializable {
         Scene scene = new Scene(loader.load(), 400, 200);
         stage.setTitle("Mensajes");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }
