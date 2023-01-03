@@ -62,9 +62,9 @@ public class AdvancedUserController implements Initializable {
     }
 
     private void setUserView() throws IOException {
-        Image adminImg = new Image("file:/C:/Users/Mr.%20Devil/IdeaProjects/User%20Management%20System%202.0/target/classes/com/mrdevil/usermanagementsystem/images/adminIcon.png");
-        Image advancedImg = new Image("file:/C:/Users/Mr.%20Devil/IdeaProjects/User%20Management%20System%202.0/target/classes/com/mrdevil/usermanagementsystem/images/advancedIcon.png");
-        Image normalImg = new Image("file:/C:/Users/Mr.%20Devil/IdeaProjects/User%20Management%20System%202.0/target/classes/com/mrdevil/usermanagementsystem/images/normalIcon.png");
+        Image adminImg = new Image(Main.class.getResource("images/adminIcon.png").openStream());
+        Image advancedImg = new Image(Main.class.getResource("images/advancedIcon.png").openStream());
+        Image normalImg = new Image(Main.class.getResource("images/normalIcon.png").openStream());
         fullNameText.setText(personLogged.getFullName());
         if (personLogged.getUserType().equals("Usuario")) {
             userImg.setImage(normalImg);
