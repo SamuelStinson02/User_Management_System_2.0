@@ -87,6 +87,7 @@ public class AdminController implements Initializable {
         personLogged = person;
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminView.fxml"));
         Scene scene = new Scene(loader.load(), 600, 400);
+
         stage.setTitle("Sistema de Gestión de Usuarios");
         stage.setScene(scene);
         stage.setResizable(false);
@@ -109,6 +110,7 @@ public class AdminController implements Initializable {
     protected void onHomeBtnClicked() throws IOException {
         mainContent.getItems().set(0, HomeController.display(personLogged).load());
     }
+
 
     @FXML
     protected void onAddUserBtnClicked() throws IOException {

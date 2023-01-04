@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -28,6 +29,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField userText;
 
+
     @FXML
     private PasswordField passText;
 
@@ -42,7 +44,10 @@ public class LoginController implements Initializable {
     public static void display() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginView.fxml"));
         Scene scene = new Scene(loader.load(), 600, 400);
+
         stage.setScene(scene);
+
+
         stage.setTitle("Sistema de Gestión de Usuarios");
         stage.setResizable(false);
         stage.show();
@@ -93,6 +98,19 @@ public class LoginController implements Initializable {
     public void onKeyEnter(KeyEvent enterEvent) throws IOException {
         if(enterEvent.getCode()== KeyCode.ENTER){
             onLoginBtnClicked();
+        }
+    }
+
+    public void onKeyAltF4(KeyEvent altF4Event) {
+        if(altF4Event.getCode()== KeyCode.TAB){
+            stage.close();
+        }
+    }
+
+    public void onKeyTab(KeyEvent tabEvent) {
+        if(tabEvent.getCode()== KeyCode.TAB){
+
+
         }
     }
 }

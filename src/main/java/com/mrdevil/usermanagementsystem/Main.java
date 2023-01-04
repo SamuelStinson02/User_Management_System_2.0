@@ -12,7 +12,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         Admin.newAdmin("admin", "admin", "admin");
         AdvancedUser.newAdvancedUser("osmel", "123", "Osmel Profe");
-        User.newUser("samuel02", "123", "Samuel Salazar");
+        User.newUser("samuel", "123", "Samuel Salazar");
         launch(args);
     }
 

@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -67,6 +69,7 @@ public class UserController implements Initializable {
                 closeNav.setToX(-(navList.getWidth()));
                 closeNav.play();
             }
+
         });
     }
 
@@ -115,5 +118,12 @@ public class UserController implements Initializable {
     @FXML
     protected void onSettingsBtnClicked() throws IOException {
         mainContent.getItems().set(0, UserSettingsController.display(personLogged).load());
+    }
+
+    public void spaceEvent(KeyEvent keyEvent) {
+        if(keyEvent.getCode()== KeyCode.T){
+
+
+            }
     }
 }

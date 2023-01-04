@@ -78,17 +78,20 @@
         </HBox>
         <VBox fx:id="navList" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="180.0" style="-fx-background-color: Gray;" translateX="-180" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fx:id="userImg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="userImg" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/normalIcon.png" />
+                        <Image url="@images/advancedIcon.png" />
                     </image>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
                 </ImageView>
                 <Label fx:id="fullNameText" text="Persona logeada">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="homeBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onHomeBtnClicked" prefHeight="30.0" prefWidth="30.0">
+                <Button fx:id="homeBtn" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onHomeBtnClicked" prefHeight="40.0" prefWidth="100.0" text="Home">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -97,23 +100,16 @@
                         </ImageView>
                     </graphic>
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" top="20.0" />
                </VBox.margin>
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
                 </Button>
-                <Button fx:id="databaseBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#databaseBtnClicked" prefHeight="30.0" prefWidth="30.0">
+                <Button fx:id="databaseBtn" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#databaseBtnClicked" prefHeight="40.0" prefWidth="100.0" text="Data B">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -124,21 +120,14 @@
                     <VBox.margin>
                         <Insets bottom="10.0" />
                     </VBox.margin>
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
                 </Button>
-                <Button fx:id="logoutBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLogoutBtnClicked" prefHeight="30.0" prefWidth="30.0">
+                <Button fx:id="logoutBtn" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLogoutBtnClicked" prefHeight="40.0" prefWidth="100.0" text="Salir">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -146,19 +135,12 @@
                             </image>
                         </ImageView>
                     </graphic>
-               <effect>
-                  <Lighting>
-                     <bumpInput>
-                        <Shadow />
-                     </bumpInput>
-                     <light>
-                        <Light.Distant />
-                     </light>
-                  </Lighting>
-               </effect>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
                 </Button>
             </children>
         </VBox>
