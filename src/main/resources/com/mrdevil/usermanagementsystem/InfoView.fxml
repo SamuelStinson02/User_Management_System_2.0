@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -48,10 +50,20 @@
             <Insets top="10.0" />
          </VBox.margin>
         </Label>
-      <Hyperlink prefHeight="23.0" prefWidth="513.0" text="Hyperlink">
+      <Hyperlink alignment="TOP_LEFT" prefHeight="38.0" prefWidth="426.0" text="https://guthib.com/SamuelStinson02/User_Management_System_2.0.git">
          <VBox.margin>
-            <Insets top="40.0" />
+            <Insets right="140.0" top="60.0" />
          </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/gitHico.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Hyperlink>
     </children>
 </VBox>

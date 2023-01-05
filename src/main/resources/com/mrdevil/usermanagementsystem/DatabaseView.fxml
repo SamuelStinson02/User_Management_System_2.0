@@ -28,7 +28,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
         </TableView>
-        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa; -fx-background-color: #aaaaaa;">
             <children>
                 <Button fx:id="editBtn" mnemonicParsing="false" onAction="#onEditBtnClicked" text="Editar">
                     <HBox.margin>
