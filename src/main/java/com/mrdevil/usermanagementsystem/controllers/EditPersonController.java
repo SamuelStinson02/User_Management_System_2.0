@@ -68,6 +68,7 @@ public class EditPersonController implements Initializable {
 
         Person.removePerson(personLogged);
         DatabaseController.refreshList(personLogged);
+        DatabaseController.updateList(personLogged);
 
         if (Person.getPersonByUsername(newUserName).getUserName().equals("null")) {
             if (newUserType.equals("Usuario")) {
@@ -79,7 +80,6 @@ public class EditPersonController implements Initializable {
             }
         }
         stage.close();
+
     }
-
-
 }

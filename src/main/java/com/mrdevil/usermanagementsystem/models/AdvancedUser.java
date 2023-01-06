@@ -1,6 +1,6 @@
 package com.mrdevil.usermanagementsystem.models;
 
-public class AdvancedUser extends Person {
+public class    AdvancedUser extends Person {
     protected AdvancedUser(String userName, String password, String fullName) {
         super(userName, password, fullName, "Usuario Avanzado");
     }

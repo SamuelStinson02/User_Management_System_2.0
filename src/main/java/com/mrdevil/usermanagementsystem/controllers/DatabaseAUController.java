@@ -72,8 +72,9 @@ public class DatabaseAUController implements Initializable {
             a.setContentText("No tienes permitido eliminar a un Administrador");
             a.showAndWait();
         } else {
+            personsDB.remove(userTable.getSelectionModel().getSelectedItem());
             refreshList(userTable.getSelectionModel().getSelectedItem());
-            Person.removePerson(userTable.getSelectionModel().getSelectedItem());
+            //Person.removePerson(userTable.getSelectionModel().getSelectedItem());
             userTable.refresh();
         }
     }

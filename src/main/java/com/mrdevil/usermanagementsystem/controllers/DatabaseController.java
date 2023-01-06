@@ -61,8 +61,9 @@ public class DatabaseController implements Initializable {
 
     @FXML
     private void onDeleteBtnClicked() {
+        personsDB.remove(userTable.getSelectionModel().getSelectedItem());
         refreshList(userTable.getSelectionModel().getSelectedItem());
-        Person.removePerson(userTable.getSelectionModel().getSelectedItem());
+       // Person.removePerson(userTable.getSelectionModel().getSelectedItem());
         userTable.refresh();
     }
 
@@ -99,5 +100,13 @@ public class DatabaseController implements Initializable {
         if (userType.equals("Usuario")) usersDB.remove(p);
         else if (userType.equals("Administrador")) adminsDB.remove(p);
         else advancedUsersDB.remove(p);
+    }
+
+    public static void updateList(Person p){
+        String userType = p.getUserType();
+
+        if (userType.equals("Usuario")) usersDB.add(p);
+        else if (userType.equals("Administrador")) adminsDB.add(p);
+        else advancedUsersDB.add(p);
     }
 }
