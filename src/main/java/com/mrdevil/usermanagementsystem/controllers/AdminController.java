@@ -45,7 +45,6 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        navList.setItems(FXCollections.observableArrayList("Red","Yellow","Blue"));
         try {
             setUserView();
         } catch (IOException e) {

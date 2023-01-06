@@ -11,11 +11,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -70,6 +70,12 @@ public class NewPersonController implements Initializable {
             } else {
                 AdvancedUser.newAdvancedUser(userName, userPass, fullName);
             }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setHeaderText(null);
+            a.setTitle("Error de registro");
+            a.setContentText("Este nombre de usuario ya existe!");
+            a.showAndWait();
         }
         stage.close();
     }

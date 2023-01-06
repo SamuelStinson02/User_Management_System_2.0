@@ -36,6 +36,7 @@ public class EditPersonAUController implements Initializable {
 
     private final ObservableList<String> types = FXCollections.observableArrayList();
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         types.add("Usuario");
@@ -67,6 +68,7 @@ public class EditPersonAUController implements Initializable {
         String newUserType = userTypeBox.getSelectionModel().getSelectedItem();
 
         Person.removePerson(personLogged);
+        DatabaseAUController.refreshList(personLogged);
 
         if (Person.getPersonByUsername(newUserName).getUserName().equals("null")) {
             if (newUserType.equals("Usuario")) {

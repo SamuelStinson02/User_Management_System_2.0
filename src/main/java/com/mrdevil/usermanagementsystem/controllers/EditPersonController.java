@@ -67,6 +67,7 @@ public class EditPersonController implements Initializable {
         String newUserType = userTypeBox.getSelectionModel().getSelectedItem();
 
         Person.removePerson(personLogged);
+        DatabaseController.refreshList(personLogged);
 
         if (Person.getPersonByUsername(newUserName).getUserName().equals("null")) {
             if (newUserType.equals("Usuario")) {
