@@ -27,11 +27,11 @@ public class DatabaseAUController implements Initializable {
     @FXML
     private ChoiceBox<String> filterBox;
 
-    private ObservableList<Person> personsDB = Person.getPersons();
-    private static ObservableList<Person> adminsDB = FXCollections.observableArrayList();
-    private static ObservableList<Person> advancedUsersDB = FXCollections.observableArrayList();
-    private static ObservableList<Person> usersDB = FXCollections.observableArrayList();
-    private ObservableList<String> filters = FXCollections.observableArrayList();
+    private static final ObservableList<Person> personsDB = Person.getPersons();
+    private static final ObservableList<Person> adminsDB = FXCollections.observableArrayList();
+    private static final ObservableList<Person> advancedUsersDB = FXCollections.observableArrayList();
+    private static final ObservableList<Person> usersDB = FXCollections.observableArrayList();
+    private final ObservableList<String> filters = FXCollections.observableArrayList();
 
 
     @Override
@@ -74,7 +74,6 @@ public class DatabaseAUController implements Initializable {
         } else {
             personsDB.remove(userTable.getSelectionModel().getSelectedItem());
             refreshList(userTable.getSelectionModel().getSelectedItem());
-            //Person.removePerson(userTable.getSelectionModel().getSelectedItem());
             userTable.refresh();
         }
     }
@@ -84,24 +83,13 @@ public class DatabaseAUController implements Initializable {
     private void onFilterBtnClicked() {
         String filter = filterBox.getSelectionModel().getSelectedItem();
 
-        for (Person p : personsDB) {
-            if (p.getUserType().equals("Usuario")) {
-                if (!usersDB.contains(p)) usersDB.add(p);
-            } else if (p.getUserType().equals("Administrador")) {
-                if (!adminsDB.contains(p)) adminsDB.add(p);
-            } else {
-                if (!advancedUsersDB.contains(p)) advancedUsersDB.add(p);
-            }
-        }
+        updateList();
 
-        if (filter.equals("Todos")) {
-            userTable.setItems(personsDB);
-        } else if (filter.equals("Usuarios")) {
-            userTable.setItems(usersDB);
-        } else if (filter.equals("Administradores")) {
-            userTable.setItems(adminsDB);
-        } else {
-            userTable.setItems(advancedUsersDB);
+        switch (filter) {
+            case "Todos" -> userTable.setItems(personsDB);
+            case "Usuarios" -> userTable.setItems(usersDB);
+            case "Administradores" -> userTable.setItems(adminsDB);
+            default -> userTable.setItems(advancedUsersDB);
         }
 
         userTable.refresh();
@@ -113,5 +101,17 @@ public class DatabaseAUController implements Initializable {
         if (userType.equals("Usuario")) usersDB.remove(p);
         else if (userType.equals("Administrador")) adminsDB.remove(p);
         else advancedUsersDB.remove(p);
+    }
+
+    public static void updateList() {
+        for (Person p : personsDB) {
+            if (p.getUserType().equals("Usuario")) {
+                if (!usersDB.contains(p)) usersDB.add(p);
+            } else if (p.getUserType().equals("Administrador")) {
+                if (!adminsDB.contains(p)) adminsDB.add(p);
+            } else {
+                if (!advancedUsersDB.contains(p)) advancedUsersDB.add(p);
+            }
+        }
     }
 }

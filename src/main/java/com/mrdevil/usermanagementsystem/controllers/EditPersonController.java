@@ -11,11 +11,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -67,8 +67,8 @@ public class EditPersonController implements Initializable {
         String newUserType = userTypeBox.getSelectionModel().getSelectedItem();
 
         Person.removePerson(personLogged);
-        DatabaseController.refreshList(personLogged);
-        DatabaseController.updateList(personLogged);
+        if (!personLogged.getUserType().equals(newUserType)) DatabaseController.refreshList(personLogged);
+        else DatabaseController.refreshList(personLogged);
 
         if (Person.getPersonByUsername(newUserName).getUserName().equals("null")) {
             if (newUserType.equals("Usuario")) {
@@ -79,7 +79,17 @@ public class EditPersonController implements Initializable {
                 AdvancedUser.newAdvancedUser(newUserName, newUserPassword, newUserFullName);
             }
         }
-        stage.close();
 
+        DatabaseController.updateList();
+
+        if (AdminController.getPersonLogged().getUserName().equals(personLogged.getUserName())) {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setHeaderText(null);
+            a.setTitle("Información");
+            a.setContentText("Para ver los cambios reflejados, vuelva a iniciar sesión");
+            a.showAndWait();
+        }
+
+        stage.close();
     }
 }

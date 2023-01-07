@@ -107,4 +107,8 @@ public class AdvancedUserController implements Initializable {
         personLogged = null;
         stage.close();
     }
+
+    public static Person getPersonLogged() {
+        return personLogged;
+    }
 }

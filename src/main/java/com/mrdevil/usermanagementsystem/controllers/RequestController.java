@@ -1,17 +1,19 @@
 package com.mrdevil.usermanagementsystem.controllers;
 
 import com.mrdevil.usermanagementsystem.Main;
+import com.mrdevil.usermanagementsystem.models.Person;
 import com.mrdevil.usermanagementsystem.models.Request;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +27,8 @@ public class RequestController implements Initializable {
 
     @FXML
     private TableColumn requestCol;
+    @FXML
+    private Button rejectBtn, acceptBtn;
 
     private final ObservableList<Request> requests = Request.getRequestsDB();
 
@@ -42,5 +46,25 @@ public class RequestController implements Initializable {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    @FXML
+    private void onRejectBtnClicked() {
+        requests.remove(requestTable.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    private void onAcceptBtnClicked() {
+        Request r = requestTable.getSelectionModel().getSelectedItem();
+        r.getPersonLogged().setPassword(r.getNewPassword());
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setHeaderText(null);
+        a.setTitle("Información");
+        a.setContentText("Contraseña cambiada");
+        a.showAndWait();
+
+        r.getPersonLogged().setMessage("Su contraseña se ha modificado");
+
+        requests.remove(r);
     }
 }

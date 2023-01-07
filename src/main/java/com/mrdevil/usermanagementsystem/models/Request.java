@@ -4,12 +4,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Request {
-    private String request;
+    private String request, newPassword;
+    private Person personLogged;
 
-    private static ObservableList<Request> requestsDB = FXCollections.observableArrayList();
+    private static final ObservableList<Request> requestsDB = FXCollections.observableArrayList();
 
-    public Request(String request) {
+    public Request(String request, String newPassword, Person personLogged) {
         this.request = request;
+        this.newPassword = newPassword;
+        this.personLogged = personLogged;
     }
 
     public String getRequest() {
@@ -20,11 +23,27 @@ public class Request {
         this.request = request;
     }
 
-    public static void addRequest(Request r){
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
+
+    public Person getPersonLogged() {
+        return personLogged;
+    }
+
+    public void setPersonLogged(Person personLogged) {
+        this.personLogged = personLogged;
+    }
+
+    public static void addRequest(Request r) {
         requestsDB.add(r);
     }
 
-    public static ObservableList<Request> getRequestsDB(){
+    public static ObservableList<Request> getRequestsDB() {
         return requestsDB;
     }
 }

@@ -125,4 +125,8 @@ public class AdminController implements Initializable {
     private void onSmsBtnClicked() throws IOException {
         RequestController.display();
     }
+
+    public static Person getPersonLogged() {
+        return personLogged;
+    }
 }

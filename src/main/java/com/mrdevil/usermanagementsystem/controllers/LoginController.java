@@ -6,16 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +18,8 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     private static final Stage stage = new Stage();
+    @FXML
+    private Label messageText;
     @FXML
     private ImageView img;
 
@@ -38,7 +35,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        messageText.setText(" ");
     }
 
     public static void display() throws IOException {
@@ -65,14 +62,22 @@ public class LoginController implements Initializable {
 
             Person p = Person.getPersonByUsername(userName);
             if (!p.getUserName().equals("null")) {
+                if (!p.getMessage().equals("null")) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setHeaderText(null);
+                    a.setTitle("Información");
+                    a.setContentText(p.getMessage());
+                    a.showAndWait();
+                    p.setMessage("null");
+                }
                 if (p.getPassword().equals(userPass)) {
-                    if (p.getUserType().equals("Usuario")){
+                    if (p.getUserType().equals("Usuario")) {
                         UserController.display(Person.getPersonByUsername(userName));
                         close();
                     } else if (p.getUserType().equals("Administrador")) {
                         AdminController.display(Person.getPersonByUsername(userName));
                         close();
-                    }else {
+                    } else {
                         AdvancedUserController.display(Person.getPersonByUsername(userName));
                         close();
                     }
@@ -96,21 +101,17 @@ public class LoginController implements Initializable {
     }
 
     public void onKeyEnter(KeyEvent enterEvent) throws IOException {
-        if(enterEvent.getCode()== KeyCode.ENTER){
+        if (enterEvent.getCode() == KeyCode.ENTER) {
             onLoginBtnClicked();
         }
     }
 
     public void onKeyAltF4(KeyEvent altF4Event) {
-        if(altF4Event.getCode()== KeyCode.TAB){
+        if (altF4Event.getCode() == KeyCode.TAB) {
             stage.close();
         }
     }
 
     public void onKeyTab(KeyEvent tabEvent) {
-        if(tabEvent.getCode()== KeyCode.TAB){
-
-
-        }
     }
 }

@@ -19,11 +19,10 @@ public class UserSettingsController implements Initializable {
     @FXML
     private Button enviarBtn;
     @FXML
-    private PasswordField oldPassText, newPassText;
+    private PasswordField oldPassText, newPassText, checkNewPassText;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     public static FXMLLoader display(Person person) {
@@ -33,22 +32,31 @@ public class UserSettingsController implements Initializable {
 
     @FXML
     private void onEnviarBtnClicked() {
-        if (!oldPassText.getText().isEmpty() && !newPassText.getText().isEmpty()) {
-            if (personLogged.getPassword().equals(oldPassText.getText())) {
-                Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setHeaderText(null);
-                a.setTitle("Cambio de Contraseña");
-                a.setContentText("La solicitud fue enviada a un administrador");
-                a.show();
-                Request.addRequest(new Request("Usuario: " + personLogged.getUserName() + " solicita " +
-                        "cambiar su contraseña a: " + newPassText.getText()));
-                oldPassText.setText("");
-                newPassText.setText("");
+        if (!oldPassText.getText().isEmpty() && !newPassText.getText().isEmpty() && !checkNewPassText.getText().isEmpty()) {
+            if (newPassText.getText().equals(checkNewPassText.getText())) {
+                if (oldPassText.getText().equals(personLogged.getPassword())) {
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
+                    a.setHeaderText(null);
+                    a.setTitle("Cambio de Contraseña");
+                    a.setContentText("La solicitud fue enviada a un administrador");
+                    a.show();
+                    String texto = "Usuario: " + personLogged.getUserName() + " solicita cambiar su contraseña a: " + newPassText.getText();
+                    Request.addRequest(new Request(texto, newPassText.getText(), personLogged));
+                    oldPassText.setText("");
+                    newPassText.setText("");
+                    checkNewPassText.setText("");
+                } else {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setHeaderText(null);
+                    a.setTitle("Cambio de Contraseña");
+                    a.setContentText("Antigua contraseña erronea");
+                    a.show();
+                }
             } else {
                 Alert a = new Alert(Alert.AlertType.ERROR);
                 a.setHeaderText(null);
                 a.setTitle("Cambio de Contraseña");
-                a.setContentText("Antigua contraseña erronea");
+                a.setContentText("La contraseña no coincide");
                 a.show();
             }
         }

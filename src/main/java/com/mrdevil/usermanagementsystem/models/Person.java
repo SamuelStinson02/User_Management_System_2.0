@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Person {
-    private String userName, password, fullName, userType;
+    private String userName, password, fullName, userType, message = "null";
 
     protected static ObservableList<Person> personsDB = FXCollections.observableArrayList();
 
@@ -47,6 +47,14 @@ public class Person {
         this.userType = userType;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public static void addPerson(Person p) {
         personsDB.add(p);
     }
@@ -62,7 +70,7 @@ public class Person {
         return new Person("null", "null", "null", "null");
     }
 
-    public static void removePerson(Person p){
+    public static void removePerson(Person p) {
         personsDB.remove(p);
     }
 }
