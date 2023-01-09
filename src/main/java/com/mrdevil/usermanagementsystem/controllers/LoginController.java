@@ -18,8 +18,10 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     private static final Stage stage = new Stage();
-    @FXML
-    private Label messageText;
+
+    /*@FXML
+   private Label messageText;
+    */
     @FXML
     private ImageView img;
 
@@ -35,7 +37,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        messageText.setText(" ");
+        //messageText.setText(" ");
     }
 
     public static void display() throws IOException {
@@ -112,6 +114,5 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void onKeyTab(KeyEvent tabEvent) {
-    }
+
 }

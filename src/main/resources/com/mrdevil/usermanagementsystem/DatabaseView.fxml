@@ -1,93 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #aaaaaa;"
-      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.mrdevil.usermanagementsystem.controllers.DatabaseController">
-    <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="-Infinity" prefHeight="32.0" prefWidth="170.0"
-           text="Base de Datos">
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrdevil.usermanagementsystem.controllers.DatabaseController">
+    <Label alignment="TOP_CENTER" contentDisplay="CENTER" maxWidth="-Infinity" prefHeight="32.0" prefWidth="170.0" text="Base de Datos">
         <font>
-            <Font name="Cambria Bold" size="26.0"/>
+            <Font name="Cambria Bold" size="26.0" />
         </font>
     </Label>
     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;">
         <ChoiceBox fx:id="filterBox" prefWidth="150.0">
             <HBox.margin>
-                <Insets/>
+                <Insets />
             </HBox.margin>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <effect>
                 <Lighting>
                     <bumpInput>
-                        <Shadow/>
+                        <Shadow />
                     </bumpInput>
                 </Lighting>
             </effect>
         </ChoiceBox>
         <Button fx:id="filterBtn" mnemonicParsing="false" onAction="#onFilterBtnClicked" text="Filtrar">
             <HBox.margin>
-                <Insets left="10.0" right="350.0"/>
+                <Insets left="10.0" right="350.0" />
             </HBox.margin>
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@images/lupaIco.png"/>
+                    <Image url="@images/lupaIco.png" />
                 </ImageView>
             </graphic>
         </Button>
     </HBox>
-    <TableView fx:id="userTable" prefHeight="300.0" prefWidth="600.0"
-               style="-fx-background-color: #c6c6c6; -fx-border-color: #c6c6c6;">
+    <TableView fx:id="userTable" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #c6c6c6; -fx-border-color: #c6c6c6;">
         <columns>
-            <TableColumn fx:id="userFullNameCol" editable="false" prefWidth="150.0" text="Nombre Completo"/>
-            <TableColumn fx:id="userNameCol" editable="false" prefWidth="150.0" text="Nombre de Usuario"/>
-            <TableColumn fx:id="userPassCol" editable="false" prefWidth="150.0" text="Contraseña"/>
-            <TableColumn fx:id="userTypeCol" editable="false" prefWidth="150.0" text="Rol"/>
+            <TableColumn fx:id="userFullNameCol" editable="false" prefWidth="150.0" text="Nombre Completo" />
+            <TableColumn fx:id="userNameCol" editable="false" prefWidth="150.0" text="Nombre de Usuario" />
+            <TableColumn fx:id="userPassCol" editable="false" prefWidth="150.0" text="Contraseña" />
+            <TableColumn fx:id="userTypeCol" editable="false" prefWidth="150.0" text="Rol" />
         </columns>
         <cursor>
-            <Cursor fx:constant="DEFAULT"/>
+            <Cursor fx:constant="DEFAULT" />
         </cursor>
     </TableView>
-    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0"
-          style="-fx-background-color: #c6c6c6; -fx-border-color: #aaaaaa;">
-        <Button fx:id="editBtn" mnemonicParsing="false" onAction="#onEditBtnClicked"
-                style="-fx-background-color: #c6c6c6;" text="Editar">
+    <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: #c6c6c6; -fx-border-color: #aaaaaa;">
+        <Button fx:id="editBtn" mnemonicParsing="false" onAction="#onEditBtnClicked" text="Editar">
             <HBox.margin>
-                <Insets bottom="10.0" right="25.0"/>
+                <Insets bottom="10.0" right="25.0" />
             </HBox.margin>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Button fx:id="deleteBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
-                onAction="#onDeleteBtnClicked" prefHeight="26.0" prefWidth="62.0" text="Eliminar">
+        <Button fx:id="deleteBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDeleteBtnClicked" prefHeight="26.0" prefWidth="62.0" text="Eliminar">
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
             <font>
-                <Font name="System Bold" size="12.0"/>
+                <Font name="System Bold" size="12.0" />
             </font>
             <HBox.margin>
-                <Insets bottom="10.0"/>
+                <Insets bottom="10.0" />
             </HBox.margin>
         </Button>
     </HBox>

@@ -119,11 +119,4 @@ public class UserController implements Initializable {
     protected void onSettingsBtnClicked() throws IOException {
         mainContent.getItems().set(0, UserSettingsController.display(personLogged).load());
     }
-
-    public void spaceEvent(KeyEvent keyEvent) {
-        if(keyEvent.getCode()== KeyCode.T){
-
-
-            }
-    }
 }

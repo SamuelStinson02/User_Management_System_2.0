@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            onKeyReleased="#spaceEvent" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c6c6c6c6;"
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #c6c6c6c6;"
             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mrdevil.usermanagementsystem.controllers.UserController">
     <children>

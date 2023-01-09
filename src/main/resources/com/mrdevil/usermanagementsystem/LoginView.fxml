@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyAltF4" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrdevil.usermanagementsystem.controllers.LoginController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyAltF4" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #aaaaaa;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mrdevil.usermanagementsystem.controllers.LoginController">
     <children>
         <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #aaaaaa;">
             <children>
@@ -31,7 +30,7 @@
                                 <Image url="@images/userIcon.png" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="userText" onKeyPressed="#onKeyTab" prefHeight="26.0" prefWidth="160.0" promptText="Nombre de usuario" style="-fx-background-color: #fefefefe;">
+                        <TextField fx:id="userText" prefHeight="26.0" prefWidth="160.0" promptText="Nombre de usuario" style="-fx-background-color: #fefefefe;">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -73,7 +72,6 @@
                   <Insets bottom="40.0" top="10.0" />
                </VBox.margin>
                 </Button>
-            <Label fx:id="messageText" text="Notificacion" />
             </children>
         </VBox>
         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #aaaaaa;">

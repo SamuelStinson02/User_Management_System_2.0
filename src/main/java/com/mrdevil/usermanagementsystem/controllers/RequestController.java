@@ -1,7 +1,6 @@
 package com.mrdevil.usermanagementsystem.controllers;
 
 import com.mrdevil.usermanagementsystem.Main;
-import com.mrdevil.usermanagementsystem.models.Person;
 import com.mrdevil.usermanagementsystem.models.Request;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
