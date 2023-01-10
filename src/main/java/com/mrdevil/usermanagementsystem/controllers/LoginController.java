@@ -57,7 +57,7 @@ public class LoginController {
             Person p = Person.getPersonByUsername(userName);
             if (!p.getUserName().equals("null")) {
                 if (!p.getMessage().equals("null")) {
-                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    Alert a = new Alert(Alert.AlertType.INFORMATION);
                     a.setHeaderText(null);
                     a.setTitle("Información");
                     a.setContentText(p.getMessage());

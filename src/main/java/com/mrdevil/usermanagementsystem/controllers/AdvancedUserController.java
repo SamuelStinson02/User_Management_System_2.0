@@ -64,7 +64,7 @@ public class AdvancedUserController implements Initializable {
         Image advancedImg = new Image(Main.class.getResource("images/advancedIcon.png").openStream());
         userImg.setImage(advancedImg);
         fullNameText.setText(personLogged.getFullName());
-        mainContent.getItems().set(0, HomeController.display(personLogged).load());
+        mainContent.getItems().set(0, HomeController.display(personLogged, stage).load());
     }
 
     public static void display(Person person) throws IOException {
@@ -84,7 +84,7 @@ public class AdvancedUserController implements Initializable {
 
     @FXML
     protected void onHomeBtnClicked() throws IOException {
-        mainContent.getItems().set(0, HomeController.display(personLogged).load());
+        mainContent.getItems().set(0, HomeController.display(personLogged, stage).load());
     }
 
     @FXML

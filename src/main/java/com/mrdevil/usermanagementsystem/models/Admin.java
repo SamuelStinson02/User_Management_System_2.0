@@ -1,8 +1,5 @@
 package com.mrdevil.usermanagementsystem.models;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 public class Admin extends Person {
     protected Admin(String userName, String password, String fullName) {
         super(userName, password, fullName, "Administrador");

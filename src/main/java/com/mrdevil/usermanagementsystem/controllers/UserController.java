@@ -18,8 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -93,7 +91,7 @@ public class UserController implements Initializable {
         userImg.setImage(normalImg);
         fullNameText.setText(personLogged.getFullName());
 
-        mainContent.getItems().set(0, HomeController.display(personLogged).load());
+        mainContent.getItems().set(0, HomeController.display(personLogged, stage).load());
     }
 
     public static void display(Person person) throws IOException {
@@ -120,7 +118,7 @@ public class UserController implements Initializable {
 
     @FXML
     protected void onHomeBtnClicked() throws IOException {
-        mainContent.getItems().set(0, HomeController.display(personLogged).load());
+        mainContent.getItems().set(0, HomeController.display(personLogged, stage).load());
     }
 
     @FXML

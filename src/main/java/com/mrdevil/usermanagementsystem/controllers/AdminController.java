@@ -71,7 +71,7 @@ public class AdminController implements Initializable {
         Image adminImg = new Image(Main.class.getResource("images/adminIcon.png").openStream());
         userImg.setImage(adminImg);
         fullNameText.setText(personLogged.getFullName());
-        mainContent.getItems().set(0, HomeController.display(personLogged).load());
+        mainContent.getItems().set(0, HomeController.display(personLogged, stage).load());
     }
 
     public static void display(Person person) throws IOException {
@@ -99,7 +99,7 @@ public class AdminController implements Initializable {
 
     @FXML
     protected void onHomeBtnClicked() throws IOException {
-        mainContent.getItems().set(0, HomeController.display(personLogged).load());
+        mainContent.getItems().set(0, HomeController.display(personLogged, stage).load());
     }
 
 
