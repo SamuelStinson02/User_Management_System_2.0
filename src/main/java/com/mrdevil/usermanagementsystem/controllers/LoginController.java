@@ -14,7 +14,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class LoginController {
     private static final Stage stage = new Stage();
@@ -30,7 +31,7 @@ public class LoginController {
     private PasswordField passText;
 
     @FXML
-    private Button loginBtn;
+    private Button loginBtn, saveStateBtn, loadStateBtn;
 
     public static void display() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginView.fxml"));
@@ -44,7 +45,7 @@ public class LoginController {
         stage.show();
     }
 
-    public void close() {
+    private void close() {
         stage.close();
     }
 
@@ -106,5 +107,56 @@ public class LoginController {
         }
     }
 
+    @FXML
+    private void onSaveStateBtnClicked() {
+        ArrayList<Person> persons = new ArrayList<>();
+        for (Person p : Person.getPersons()) persons.add(p);
 
+        try (FileOutputStream fos = new FileOutputStream("programState"); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(persons);
+
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setHeaderText(null);
+            a.setTitle("Hecho");
+            a.setContentText("Estado guardado correctamente");
+            a.showAndWait();
+
+        } catch (IOException e) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setHeaderText(null);
+            a.setTitle("Error");
+            a.setContentText("No se pudo guardar el estado del programa");
+            a.showAndWait();
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onLoadStateBtnClicked() {
+        ArrayList<Person> persons = new ArrayList<>();
+
+        try (FileInputStream fis = new FileInputStream("programState"); ObjectInputStream ois = new ObjectInputStream(fis)) {
+
+            persons = (ArrayList) ois.readObject();
+
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setHeaderText(null);
+            a.setTitle("Hecho");
+            a.setContentText("Estado cargado correctamente");
+            a.showAndWait();
+
+
+        } catch (IOException | ClassNotFoundException e) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setHeaderText(null);
+            a.setTitle("Error");
+            a.setContentText("No se pudo cargar el estado del programa");
+            a.showAndWait();
+            e.printStackTrace();
+        }
+
+        for (Person p : persons) {
+            if (Person.getPersonByUsername(p.getUserName()).getUserName().equals("null")) Person.addPerson(p);
+        }
+    }
 }

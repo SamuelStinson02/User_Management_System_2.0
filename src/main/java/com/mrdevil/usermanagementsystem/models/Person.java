@@ -3,7 +3,9 @@ package com.mrdevil.usermanagementsystem.models;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     private String userName, password, fullName, userType, message = "null";
 
     protected static ObservableList<Person> personsDB = FXCollections.observableArrayList();
@@ -72,5 +74,11 @@ public class Person {
 
     public static void removePerson(Person p) {
         personsDB.remove(p);
+    }
+
+    @Override
+    public String toString() {
+        return "Person [username=" + userName + ", password=" + password +
+                ", fullname=" + fullName + ", usertype=" + userType + "]";
     }
 }
