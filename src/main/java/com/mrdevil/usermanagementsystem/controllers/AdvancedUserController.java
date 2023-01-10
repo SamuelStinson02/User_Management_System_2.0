@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -62,17 +61,9 @@ public class AdvancedUserController implements Initializable {
     }
 
     private void setUserView() throws IOException {
-        Image adminImg = new Image(Main.class.getResource("images/adminIcon.png").openStream());
         Image advancedImg = new Image(Main.class.getResource("images/advancedIcon.png").openStream());
-        Image normalImg = new Image(Main.class.getResource("images/normalIcon.png").openStream());
+        userImg.setImage(advancedImg);
         fullNameText.setText(personLogged.getFullName());
-        if (personLogged.getUserType().equals("Usuario")) {
-            userImg.setImage(normalImg);
-        } else if (personLogged.getUserType().equals("Administrador")) {
-            userImg.setImage(adminImg);
-        } else {
-            userImg.setImage(advancedImg);
-        }
         mainContent.getItems().set(0, HomeController.display(personLogged).load());
     }
 

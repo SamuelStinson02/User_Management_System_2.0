@@ -10,9 +10,11 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static void main(String[] args) {
+        //Estado inicial de programa
         Admin.newAdmin("admin", "admin", "admin");
         AdvancedUser.newAdvancedUser("osmel", "123", "Osmel Profe");
         User.newUser("samuel", "123", "Samuel Salazar");
+
         launch(args);
     }
 

@@ -49,7 +49,6 @@ public class UserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        navList.setItems(FXCollections.observableArrayList("Red","Yellow","Blue"));
         try {
             setUserView();
         } catch (IOException e) {
@@ -74,6 +73,9 @@ public class UserController implements Initializable {
     }
 
     private void setUserView() throws IOException {
+        /*
+        En un principio este controlador iba a ser general por eso se necesitaba cambiar la imagen dependiendo del tipo de usuario logueado
+
         Image adminImg = new Image(Objects.requireNonNull(Main.class.getResource("images/adminIcon.png")).openStream());
         Image advancedImg = new Image(Objects.requireNonNull(Main.class.getResource("images/advancedIcon.png")).openStream());
         Image normalImg = new Image(Objects.requireNonNull(Main.class.getResource("images/normalIcon.png")).openStream());
@@ -85,6 +87,12 @@ public class UserController implements Initializable {
         } else {
             userImg.setImage(advancedImg);
         }
+        */
+
+        Image normalImg = new Image(Objects.requireNonNull(Main.class.getResource("images/normalIcon.png")).openStream());
+        userImg.setImage(normalImg);
+        fullNameText.setText(personLogged.getFullName());
+
         mainContent.getItems().set(0, HomeController.display(personLogged).load());
     }
 

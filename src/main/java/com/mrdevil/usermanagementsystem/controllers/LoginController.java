@@ -4,24 +4,21 @@ import com.mrdevil.usermanagementsystem.Main;
 import com.mrdevil.usermanagementsystem.models.Person;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController {
     private static final Stage stage = new Stage();
 
-    /*@FXML
-   private Label messageText;
-    */
     @FXML
     private ImageView img;
 
@@ -34,11 +31,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button loginBtn;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //messageText.setText(" ");
-    }
 
     public static void display() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("LoginView.fxml"));
@@ -87,7 +79,7 @@ public class LoginController implements Initializable {
                     Alert a = new Alert(Alert.AlertType.ERROR);
                     a.setHeaderText(null);
                     a.setTitle("Registro Inválido");
-                    a.setContentText("Usuario o contraseña incorrecto");
+                    a.setContentText("Contraseña incorrecto");
                     a.showAndWait();
                 }
             } else {

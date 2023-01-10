@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -32,7 +34,7 @@
                         <Font name="Cambria Bold" size="14.0" />
                     </font>
                     <VBox.margin>
-                        <Insets bottom="25.0" />
+                        <Insets bottom="20.0" />
                     </VBox.margin>
                 </Label>
                 <Label fx:id="userNameText" layoutX="252.0" layoutY="117.0" text="Nombre de Usuario" textFill="#201d71">
@@ -45,9 +47,27 @@
                         <Font name="Cambria Bold" size="14.0" />
                     </font>
                     <VBox.margin>
-                        <Insets top="25.0" />
+                        <Insets top="20.0" />
                     </VBox.margin>
                 </Label>
+            <Button fx:id="saveUserData" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="125.0" text="Crear Informe">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="450.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/saveUserData.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             </children>
         </VBox>
     </children>

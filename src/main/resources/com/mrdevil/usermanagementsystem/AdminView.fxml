@@ -32,6 +32,9 @@
                      </cursor>
                         </ImageView>
                     </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             <Button fx:id="smsBtn" layoutX="310.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSmsBtnClicked" prefHeight="30.0" prefWidth="30.0">
                <graphic>
