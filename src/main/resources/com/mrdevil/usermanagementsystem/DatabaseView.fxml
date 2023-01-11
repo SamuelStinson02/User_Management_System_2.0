@@ -49,7 +49,7 @@
             </cursor>
             <graphic>
                 <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@images/lupaIco.png" />
+                    <Image url="@images/filterIco.png" />
                 </ImageView>
             </graphic>
         </Button>
