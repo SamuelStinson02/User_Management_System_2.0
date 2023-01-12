@@ -62,21 +62,31 @@ public class NewPersonController implements Initializable {
         String userPass = passTxt.getText();
         String userType = userTypeBox.getSelectionModel().getSelectedItem();
 
-        if (Person.getPersonByUsername(userName).getUserName().equals("null")) {
-            if (userType.equals("Usuario")) {
-                User.newUser(userName, userPass, fullName);
-            } else if (userType.equals("Administrador")) {
-                Admin.newAdmin(userName, userPass, fullName);
+        if (!userNameTxt.getText().isEmpty() && !fullNameTxt.getText().isEmpty() && !passTxt.getText().isEmpty()) {
+            if (Person.getPersonByUsername(userName).getUserName().equals("null")) {
+                if (userType.equals("Usuario")) {
+                    User.newUser(userName, userPass, fullName);
+                } else if (userType.equals("Administrador")) {
+                    Admin.newAdmin(userName, userPass, fullName);
+                } else {
+                    AdvancedUser.newAdvancedUser(userName, userPass, fullName);
+                }
             } else {
-                AdvancedUser.newAdvancedUser(userName, userPass, fullName);
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setHeaderText(null);
+                a.setTitle("Error de registro");
+                a.setContentText("Este nombre de usuario ya existe!");
+                a.showAndWait();
             }
+
+            stage.close();
+
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setHeaderText(null);
             a.setTitle("Error de registro");
-            a.setContentText("Este nombre de usuario ya existe!");
+            a.setContentText("Rellene todos los campos");
             a.showAndWait();
         }
-        stage.close();
     }
 }
